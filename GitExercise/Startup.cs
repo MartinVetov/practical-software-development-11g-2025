@@ -14,8 +14,7 @@ namespace GitExercise
                 throw new InvalidOperationException());
 
             Console.Write("b = ");
-            double b = double.Parse(Console.ReadLine() ?? 
-                throw new InvalidOperationException());
+            double b = double.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
             Console.WriteLine("Choose one from the listed options:");
             foreach (string option in OptionsManager.OptionsList)
@@ -23,21 +22,20 @@ namespace GitExercise
                 Console.WriteLine($"\t{option}");
             }
 
-            Console.Write("Option: ");
+            Console.WriteLine("Option: ");
             string choice = Console.ReadLine();
 
-            switch (choice)
+            if (choice == "a")
             {
-                case "a":
-                    OptionsManager.Add(a, b);
-                    break;
-                case "s":
-                    OptionsManager.Subtract(a, b);
-                    break;
-                case "m":
-                    OptionsManager.Multiply(a, b);
-                    break;
+                OptionsManager.Add(a, b);
             }
+            else if (choice == "b")
+            {
+                OptionsManager.Subtract(a, b);
+            }
+            else if (choice == "m")
+                OptionsManager.Multiply(a, b);
+                
 
             Console.WriteLine("Pres any key to close the app...");
             Console.ReadKey(true);
